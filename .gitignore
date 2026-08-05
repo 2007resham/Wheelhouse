@@ -1,0 +1,5 @@
+node_modules/
+wheelhouse.db
+.env
+*.log
+.DS_Store
