@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WheelHouse — Ride the City, Your Way</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/design-system.css" />
+  <link rel="stylesheet" href="css/landing.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <span class="wheel-icon"></span>
+        WheelHouse
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="pages/browse.html">Browse Bikes</a>
+        <a href="index.html#how-it-works">How it works</a>
+      </nav>
+      <div class="nav-actions" id="nav-auth-slot"></div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="badge badge-accent">Now live in your city</span>
+          <h1>Find your wheelhouse. <br />Ride wherever it takes you.</h1>
+          <p>WheelHouse puts city bikes, mountain bikes, and e-bikes on every corner &mdash; book by the hour or the day, pick up at a station near you, and go.</p>
+          <div class="flex-gap">
+            <a href="pages/browse.html" class="btn btn-primary">Browse bikes</a>
+            <a href="#how-it-works" class="btn btn-outline">How it works</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 400 300" width="100%" height="100%">
+            <circle cx="120" cy="220" r="55" fill="none" stroke="#1B4332" stroke-width="8"/>
+            <circle cx="280" cy="220" r="55" fill="none" stroke="#1B4332" stroke-width="8"/>
+            <path d="M120 220 L190 120 L280 220 M190 120 L160 220 M190 120 L230 120" fill="none" stroke="#1B4332" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="230" cy="120" r="10" fill="#B4E600"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+      <div class="container">
+        <h2 class="text-center">How WheelHouse works</h2>
+        <div class="steps-grid">
+          <div class="card step-card">
+            <div class="card-body">
+              <span class="step-number">1</span>
+              <h3>Browse &amp; pick</h3>
+              <p>Filter by bike type, price, or station and find the ride that fits your trip.</p>
+            </div>
+          </div>
+          <div class="card step-card">
+            <div class="card-body">
+              <span class="step-number">2</span>
+              <h3>Book instantly</h3>
+              <p>Choose your dates and times, review the price, and confirm &mdash; no paperwork.</p>
+            </div>
+          </div>
+          <div class="card step-card">
+            <div class="card-body">
+              <span class="step-number">3</span>
+              <h3>Ride &amp; return</h3>
+              <p>Pick up at your chosen station, ride the city, and drop off when you're done.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured">
+      <div class="container">
+        <div class="flex-between">
+          <h2>Featured bikes</h2>
+          <a href="pages/browse.html" class="btn btn-outline">View all</a>
+        </div>
+        <div id="featured-grid" class="bike-grid"></div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <h2 class="text-center">Riders love WheelHouse</h2>
+        <div class="testimonial-grid">
+          <div class="card testimonial-card">
+            <div class="card-body">
+              <p>&ldquo;Booked an e-bike for a weekend trip along the river &mdash; smoothest rental experience I've had.&rdquo;</p>
+              <strong>— Priya M.</strong>
+            </div>
+          </div>
+          <div class="card testimonial-card">
+            <div class="card-body">
+              <p>&ldquo;The mountain bikes are actually trail-ready. Great for a spontaneous Saturday ride.&rdquo;</p>
+              <strong>— Daniel K.</strong>
+            </div>
+          </div>
+          <div class="card testimonial-card">
+            <div class="card-body">
+              <p>&ldquo;Cheaper than I expected and the station near my office made commuting so much easier.&rdquo;</p>
+              <strong>— Sofia R.</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="nav-logo" style="color:#fff;">
+            <span class="wheel-icon" style="border-color:#fff;"></span>
+            WheelHouse
+          </a>
+          <p style="margin-top: 1rem; max-width: 320px;">Urban bike rentals for every kind of ride &mdash; by the hour, by the day, by the city.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="pages/browse.html">Browse bikes</a></li>
+            <li><a href="index.html#how-it-works">How it works</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Account</h4>
+          <ul>
+            <li><a href="pages/login.html">Log in</a></li>
+            <li><a href="pages/signup.html">Sign up</a></li>
+            <li><a href="pages/dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Team</h4>
+          <ul>
+            <li><a href="#">About this project</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 WheelHouse. A university front-end engineering group project.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/bikeCard.js"></script>
+  <script src="js/landing.js"></script>
+</body>
+</html>

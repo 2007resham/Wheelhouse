@@ -372,6 +372,28 @@ p { margin: 0 0 var(--space-md); color: var(--color-text-muted); }
   100% { background-position: 0 50%; }
 }
 
+/* ---------- Bike grid + card (shared: landing + browse) ---------- */
+.bike-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+.bike-card { display: flex; flex-direction: column; }
+.bike-card-image {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  object-fit: cover;
+  background: var(--color-border);
+}
+.bike-card .card-body { display: flex; flex-direction: column; gap: var(--space-sm); flex: 1; }
+.bike-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-sm); }
+.bike-card-rating { font-size: 0.85rem; color: var(--color-text-muted); white-space: nowrap; }
+.bike-card-price { font-family: var(--font-heading); font-weight: 700; color: var(--color-primary); }
+.bike-card-price span { font-family: var(--font-body); font-weight: 400; font-size: 0.8rem; color: var(--color-text-muted); }
+.bike-card-footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: var(--space-sm); }
+.bike-card-unavailable { opacity: 0.55; }
+
 /* ---------- Empty state ---------- */
 .empty-state {
   text-align: center;

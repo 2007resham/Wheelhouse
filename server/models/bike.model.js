@@ -69,7 +69,17 @@ function create(bike) {
 function update(id, bike) {
   const existing = getById(id);
   if (!existing) return null;
-  const merged = { ...existing, ...bike, id };
+  const merged = {
+    name: bike.name ?? existing.name,
+    type: bike.type ?? existing.type,
+    description: bike.description ?? existing.description,
+    price_per_hour: bike.price_per_hour ?? existing.price_per_hour,
+    price_per_day: bike.price_per_day ?? existing.price_per_day,
+    image_url: bike.image_url ?? existing.image_url,
+    location: bike.location ?? existing.location,
+    is_available: bike.is_available ?? existing.is_available,
+    id,
+  };
   db.prepare(`
     UPDATE bikes SET name = @name, type = @type, description = @description,
       price_per_hour = @price_per_hour, price_per_day = @price_per_day,

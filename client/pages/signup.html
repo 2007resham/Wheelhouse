@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign up — WheelHouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/design-system.css" />
+  <link rel="stylesheet" href="../css/auth-pages.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">
+        <span class="wheel-icon"></span>
+        WheelHouse
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="browse.html">Browse Bikes</a>
+      </nav>
+      <div class="nav-actions" id="nav-auth-slot"></div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="auth-page">
+    <div class="container auth-container">
+      <div class="card auth-card">
+        <div class="card-body">
+          <h1>Create your account</h1>
+          <p>Sign up to start booking bikes across the city.</p>
+
+          <div class="form-error-banner" id="form-error"></div>
+
+          <form id="signup-form" novalidate>
+            <div class="field" id="field-name">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required />
+              <div class="error-text">Enter your full name.</div>
+            </div>
+
+            <div class="field" id="field-email">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required />
+              <div class="error-text">Enter a valid email address.</div>
+            </div>
+
+            <div class="field" id="field-password">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" autocomplete="new-password" required />
+              <div class="error-text">Password must be at least 6 characters.</div>
+            </div>
+
+            <div class="field" id="field-confirm-password">
+              <label for="confirm-password">Confirm password</label>
+              <input type="password" id="confirm-password" name="confirm-password" autocomplete="new-password" required />
+              <div class="error-text">Passwords do not match.</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Create account</button>
+          </form>
+
+          <p class="auth-switch">Already have an account? <a href="login.html">Log in</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/signup.js"></script>
+</body>
+</html>

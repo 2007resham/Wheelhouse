@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse Bikes — WheelHouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/design-system.css" />
+  <link rel="stylesheet" href="../css/browse.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">
+        <span class="wheel-icon"></span>
+        WheelHouse
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="browse.html">Browse Bikes</a>
+      </nav>
+      <div class="nav-actions" id="nav-auth-slot"></div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="browse-page">
+    <div class="container">
+      <div class="browse-header">
+        <h1>Browse bikes</h1>
+        <p>Filter by type, price, or station to find your next ride.</p>
+      </div>
+
+      <div class="filter-bar">
+        <div class="field field-search">
+          <label for="search-input" class="visually-hidden">Search bikes</label>
+          <input type="search" id="search-input" placeholder="Search by name or description..." />
+        </div>
+
+        <div class="field">
+          <label for="type-filter">Type</label>
+          <select id="type-filter">
+            <option value="">All types</option>
+            <option value="city">City</option>
+            <option value="mountain">Mountain</option>
+            <option value="electric">Electric</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="location-filter">Station</label>
+          <select id="location-filter">
+            <option value="">All stations</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="max-price-filter">Max price / hr</label>
+          <select id="max-price-filter">
+            <option value="">Any price</option>
+            <option value="5">Up to $5</option>
+            <option value="7">Up to $7</option>
+            <option value="9">Up to $9</option>
+            <option value="12">Up to $12</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="sort-select">Sort by</label>
+          <select id="sort-select">
+            <option value="">Default</option>
+            <option value="price_asc">Price: low to high</option>
+            <option value="price_desc">Price: high to low</option>
+            <option value="rating">Highest rated</option>
+            <option value="availability">Availability</option>
+          </select>
+        </div>
+      </div>
+
+      <p id="results-count" class="results-count"></p>
+
+      <div id="bike-grid" class="bike-grid"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 WheelHouse. A university front-end engineering group project.
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/bikeCard.js"></script>
+  <script src="../js/browse.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log in — WheelHouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/design-system.css" />
+  <link rel="stylesheet" href="../css/auth-pages.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">
+        <span class="wheel-icon"></span>
+        WheelHouse
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="browse.html">Browse Bikes</a>
+      </nav>
+      <div class="nav-actions" id="nav-auth-slot"></div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="auth-page">
+    <div class="container auth-container">
+      <div class="card auth-card">
+        <div class="card-body">
+          <h1>Welcome back</h1>
+          <p>Log in to book a bike and manage your rentals.</p>
+
+          <div class="form-error-banner" id="form-error"></div>
+
+          <form id="login-form" novalidate>
+            <div class="field" id="field-email">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required />
+              <div class="error-text">Enter a valid email address.</div>
+            </div>
+
+            <div class="field" id="field-password">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" autocomplete="current-password" required />
+              <div class="error-text">Password is required.</div>
+            </div>
+
+            <div class="flex-between mb-lg">
+              <label class="checkbox-label">
+                <input type="checkbox" id="remember-me" checked />
+                Remember me
+              </label>
+              <a href="#" id="forgot-password-link">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Log in</button>
+          </form>
+
+          <p class="auth-switch">Don't have an account? <a href="signup.html">Sign up</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/login.js"></script>
+</body>
+</html>
