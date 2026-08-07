@@ -33,9 +33,17 @@
     </div>
   </div>
   <script>
-    if (sessionStorage.getItem('wh_splash_shown')) {
-      document.getElementById('wh-splash').style.display = 'none';
-    }
+    (function () {
+      var entries = performance.getEntriesByType('navigation');
+      var navType = entries.length ? entries[0].type : 'navigate';
+      var alreadyVisited = sessionStorage.getItem('hasVisitedWheelHouse');
+      var showSplash = navType === 'reload' || !alreadyVisited;
+      sessionStorage.setItem('hasVisitedWheelHouse', '1');
+      window.__whShowSplash = showSplash;
+      if (!showSplash) {
+        document.getElementById('wh-splash').style.display = 'none';
+      }
+    })();
   </script>
 
   <header class="navbar">
