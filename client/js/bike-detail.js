@@ -44,6 +44,21 @@ function renderDetail(bike) {
           </div>
         </div>
 
+        <div class="detail-specs">
+          <div class="detail-spec-block">
+            <div class="value">${bike.engine_cc} cc</div>
+            <div class="label">Engine</div>
+          </div>
+          <div class="detail-spec-block">
+            <div class="value">${bike.mileage_kmpl} kmpl</div>
+            <div class="label">Mileage</div>
+          </div>
+          <div class="detail-spec-block">
+            <div class="value">${bike.fuel_type}</div>
+            <div class="label">Fuel type</div>
+          </div>
+        </div>
+
         ${!bike.is_available ? `<div class="unavailable-notice">This bike is currently unavailable for booking.</div>` : ''}
 
         <div class="booking-widget">
@@ -63,6 +78,10 @@ function renderDetail(bike) {
               <span>Estimated total</span>
               <span class="amount" id="estimate-amount">—</span>
             </div>
+            <label class="checkbox-label">
+              <input type="checkbox" id="license-confirm" required />
+              I confirm I hold a valid driving license and will wear a helmet while riding.
+            </label>
             <div class="booking-error" id="booking-error"></div>
             <button type="submit" class="btn btn-primary btn-block" id="book-now-btn" ${bike.is_available ? '' : 'disabled'}>
               ${bike.is_available ? 'Book now' : 'Unavailable'}
@@ -105,6 +124,10 @@ function renderDetail(bike) {
     const price = estimatePrice(startInput.value, endInput.value, bike);
     if (price === null) {
       errorEl.textContent = 'Choose a valid start and end time.';
+      return;
+    }
+    if (!document.getElementById('license-confirm').checked) {
+      errorEl.textContent = 'Please confirm you hold a valid driving license and will wear a helmet.';
       return;
     }
 
@@ -208,6 +231,8 @@ async function init() {
     content.innerHTML = `<div class="empty-state">No bike specified. <a href="browse.html">Browse bikes</a></div>`;
     return;
   }
+
+  content.innerHTML = window.WheelHouseLoader.gridLoaderHTML('Loading bike details...');
 
   try {
     const { api } = window.WheelHouseAPI;

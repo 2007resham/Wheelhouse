@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Browse Bikes — WheelHouse</title>
+  <title>Browse Motorcycles — WheelHouse</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/design-system.css" />
+  <link rel="stylesheet" href="../css/loader.css" />
   <link rel="stylesheet" href="../css/browse.css" />
 </head>
 <body>
@@ -31,7 +32,7 @@
   <main class="browse-page">
     <div class="container">
       <div class="browse-header">
-        <h1>Browse bikes</h1>
+        <h1>Browse motorcycles</h1>
         <p>Filter by type, price, or station to find your next ride.</p>
       </div>
 
@@ -45,9 +46,11 @@
           <label for="type-filter">Type</label>
           <select id="type-filter">
             <option value="">All types</option>
-            <option value="city">City</option>
-            <option value="mountain">Mountain</option>
-            <option value="electric">Electric</option>
+            <option value="commuter">Commuter</option>
+            <option value="cruiser">Cruiser</option>
+            <option value="sports">Sports</option>
+            <option value="adventure">Adventure</option>
+            <option value="scooter">Scooter</option>
           </select>
         </div>
 
@@ -62,10 +65,10 @@
           <label for="max-price-filter">Max price / hr</label>
           <select id="max-price-filter">
             <option value="">Any price</option>
-            <option value="5">Up to $5</option>
-            <option value="7">Up to $7</option>
-            <option value="9">Up to $9</option>
-            <option value="12">Up to $12</option>
+            <option value="4">Up to $4</option>
+            <option value="6">Up to $6</option>
+            <option value="10">Up to $10</option>
+            <option value="14">Up to $14</option>
           </select>
         </div>
 
@@ -96,6 +99,7 @@
   </footer>
 
   <script src="../js/api.js"></script>
+  <script src="../js/loader.js"></script>
   <script src="../js/auth.js"></script>
   <script src="../js/bikeCard.js"></script>
   <script src="../js/browse.js"></script>

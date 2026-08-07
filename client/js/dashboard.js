@@ -26,6 +26,9 @@ async function loadRentals() {
   const activeEl = document.getElementById('active-rentals');
   const pastEl = document.getElementById('past-rentals');
 
+  activeEl.innerHTML = window.WheelHouseLoader.gridLoaderHTML('Loading your rentals...');
+  pastEl.innerHTML = '';
+
   try {
     const { api } = window.WheelHouseAPI;
     const { bookings } = await api.get('/bookings/me', { auth: true });
@@ -52,7 +55,7 @@ async function loadRentals() {
 async function cancelBooking(id, btn) {
   if (!confirm('Cancel this booking?')) return;
   btn.disabled = true;
-  btn.textContent = 'Cancelling...';
+  btn.innerHTML = `${window.WheelHouseLoader.inlineHTML('sm')}Cancelling...`;
   try {
     const { api } = window.WheelHouseAPI;
     await api.delete(`/bookings/${id}`, { auth: true });

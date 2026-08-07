@@ -2,7 +2,7 @@ async function loadFeaturedBikes() {
   const grid = document.getElementById('featured-grid');
   if (!grid) return;
 
-  grid.innerHTML = Array.from({ length: 4 }, renderBikeCardSkeleton).join('');
+  grid.innerHTML = window.WheelHouseLoader.gridLoaderHTML('Loading featured bikes...');
 
   try {
     const { api } = window.WheelHouseAPI;
@@ -20,4 +20,28 @@ async function loadFeaturedBikes() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', loadFeaturedBikes);
+function initScrollReveal() {
+  const targets = document.querySelectorAll('.reveal');
+  if (!targets.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  targets.forEach((el) => observer.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadFeaturedBikes();
+  initScrollReveal();
+});

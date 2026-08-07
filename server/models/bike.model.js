@@ -59,8 +59,8 @@ function getLocations() {
 
 function create(bike) {
   const stmt = db.prepare(`
-    INSERT INTO bikes (name, type, description, price_per_hour, price_per_day, image_url, location, is_available)
-    VALUES (@name, @type, @description, @price_per_hour, @price_per_day, @image_url, @location, @is_available)
+    INSERT INTO bikes (name, type, description, price_per_hour, price_per_day, image_url, location, is_available, engine_cc, mileage_kmpl, fuel_type)
+    VALUES (@name, @type, @description, @price_per_hour, @price_per_day, @image_url, @location, @is_available, @engine_cc, @mileage_kmpl, @fuel_type)
   `);
   const result = stmt.run({ is_available: 1, ...bike });
   return getById(result.lastInsertRowid);
@@ -78,12 +78,16 @@ function update(id, bike) {
     image_url: bike.image_url ?? existing.image_url,
     location: bike.location ?? existing.location,
     is_available: bike.is_available ?? existing.is_available,
+    engine_cc: bike.engine_cc ?? existing.engine_cc,
+    mileage_kmpl: bike.mileage_kmpl ?? existing.mileage_kmpl,
+    fuel_type: bike.fuel_type ?? existing.fuel_type,
     id,
   };
   db.prepare(`
     UPDATE bikes SET name = @name, type = @type, description = @description,
       price_per_hour = @price_per_hour, price_per_day = @price_per_day,
-      image_url = @image_url, location = @location, is_available = @is_available
+      image_url = @image_url, location = @location, is_available = @is_available,
+      engine_cc = @engine_cc, mileage_kmpl = @mileage_kmpl, fuel_type = @fuel_type
     WHERE id = @id
   `).run(merged);
   return getById(id);

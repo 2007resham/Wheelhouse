@@ -78,6 +78,7 @@ function renderOrderSummary(bike, pending) {
     const confirmBtn = document.getElementById('confirm-btn');
     confirmBtn.disabled = true;
     confirmBtn.textContent = 'Processing...';
+    const overlay = window.WheelHouseLoader.showOverlay('Confirming your booking...');
 
     try {
       const { api } = window.WheelHouseAPI;
@@ -88,8 +89,10 @@ function renderOrderSummary(bike, pending) {
       }, { auth: true });
 
       sessionStorage.removeItem(PENDING_BOOKING_KEY);
+      overlay.hide();
       renderConfirmation(booking, bike);
     } catch (err) {
+      overlay.hide();
       showPaymentError(errorEl, err.message);
       confirmBtn.disabled = false;
       confirmBtn.textContent = `Pay $${total.toFixed(2)} & confirm`;

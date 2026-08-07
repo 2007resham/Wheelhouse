@@ -21,13 +21,16 @@ db.exec(`
   CREATE TABLE IF NOT EXISTS bikes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
-    type TEXT NOT NULL CHECK (type IN ('city', 'mountain', 'electric')),
+    type TEXT NOT NULL CHECK (type IN ('commuter', 'cruiser', 'sports', 'adventure', 'scooter')),
     description TEXT NOT NULL,
     price_per_hour REAL NOT NULL,
     price_per_day REAL NOT NULL,
     image_url TEXT NOT NULL,
     location TEXT NOT NULL,
-    is_available INTEGER NOT NULL DEFAULT 1
+    is_available INTEGER NOT NULL DEFAULT 1,
+    engine_cc INTEGER NOT NULL,
+    mileage_kmpl REAL NOT NULL,
+    fuel_type TEXT NOT NULL DEFAULT 'Petrol' CHECK (fuel_type IN ('Petrol', 'Electric'))
   );
 
   CREATE TABLE IF NOT EXISTS bookings (

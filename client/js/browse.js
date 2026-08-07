@@ -42,7 +42,7 @@ async function loadBikes() {
   const grid = document.getElementById('bike-grid');
   const resultsCount = document.getElementById('results-count');
 
-  grid.innerHTML = Array.from({ length: 8 }, renderBikeCardSkeleton).join('');
+  grid.innerHTML = window.WheelHouseLoader.gridLoaderHTML('Loading bikes...');
   resultsCount.textContent = '';
 
   try {

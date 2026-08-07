@@ -1,10 +1,11 @@
 const bikeModel = require('../models/bike.model');
 const { asyncHandler, ApiError } = require('../middleware/error.middleware');
 
-const BIKE_TYPES = ['city', 'mountain', 'electric'];
+const BIKE_TYPES = ['commuter', 'cruiser', 'sports', 'adventure', 'scooter'];
+const FUEL_TYPES = ['Petrol', 'Electric'];
 
 function parseBikePayload(body) {
-  const { name, type, description, price_per_hour, price_per_day, image_url, location, is_available } = body;
+  const { name, type, description, price_per_hour, price_per_day, image_url, location, is_available, engine_cc, mileage_kmpl, fuel_type } = body;
 
   if (!name || !name.trim()) throw new ApiError(400, 'Bike name is required');
   if (!BIKE_TYPES.includes(type)) throw new ApiError(400, `Type must be one of: ${BIKE_TYPES.join(', ')}`);
@@ -13,6 +14,9 @@ function parseBikePayload(body) {
   if (typeof price_per_day !== 'number' || price_per_day <= 0) throw new ApiError(400, 'price_per_day must be a positive number');
   if (!image_url || !image_url.trim()) throw new ApiError(400, 'image_url is required');
   if (!location || !location.trim()) throw new ApiError(400, 'location is required');
+  if (typeof engine_cc !== 'number' || engine_cc <= 0) throw new ApiError(400, 'engine_cc must be a positive number');
+  if (typeof mileage_kmpl !== 'number' || mileage_kmpl <= 0) throw new ApiError(400, 'mileage_kmpl must be a positive number');
+  if (!FUEL_TYPES.includes(fuel_type)) throw new ApiError(400, `fuel_type must be one of: ${FUEL_TYPES.join(', ')}`);
 
   return {
     name: name.trim(),
@@ -23,6 +27,9 @@ function parseBikePayload(body) {
     image_url: image_url.trim(),
     location: location.trim(),
     is_available: is_available === undefined ? 1 : is_available ? 1 : 0,
+    engine_cc,
+    mileage_kmpl,
+    fuel_type,
   };
 }
 

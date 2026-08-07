@@ -1,6 +1,6 @@
 # WheelHouse
 
-An urban bike rental platform — browse city, mountain, and electric bikes by station, book by the hour or day, and manage your rentals from a personal dashboard.
+A motorcycle rental platform — browse commuters, cruisers, sports bikes, adventure tourers, and scooters by station, book by the hour or day, and manage your rentals from a personal dashboard.
 
 Built for a second-year front-end engineering group project. Vanilla HTML/CSS/JS on the frontend, Express + SQLite on the backend — no frameworks, no build step.
 
@@ -18,7 +18,7 @@ Requires **Node.js 22.5+** (for the built-in `node:sqlite` module).
 ```bash
 npm install
 cp .env.example .env      # then edit JWT_SECRET to a long random string
-npm run seed               # creates wheelhouse.db and populates it with bikes, a demo user, and sample bookings/reviews
+npm run seed               # creates wheelhouse.db and populates it with motorcycles, a demo user, and sample bookings/reviews
 npm run dev                 # starts the server at http://localhost:3000
 ```
 
@@ -26,7 +26,7 @@ Then open `http://localhost:3000` in your browser.
 
 **Demo accounts** (created by the seed script, password `password123` for both):
 - `demo@wheelhouse.app` — regular user, has sample bookings and reviews
-- `admin@wheelhouse.app` — admin, can access `/pages/admin.html` to manage the bike fleet and view all bookings
+- `admin@wheelhouse.app` — admin, can access `/pages/admin.html` to manage the motorcycle fleet and view all bookings
 
 Re-running `npm run seed` is safe — it skips seeding if the `bikes` table already has data. To start over from an empty database, delete `wheelhouse.db` (and any `.db-shm`/`.db-wal` files next to it) and re-run the seed script.
 
@@ -57,14 +57,14 @@ wheelhouse.db   generated on first run — not committed to git
 | `POST /api/auth/login` | — | Log in, returns a JWT |
 | `GET /api/auth/me` | required | Current user's profile |
 | `PUT /api/auth/me` | required | Update name/email |
-| `GET /api/bikes` | — | List bikes (supports `type`, `location`, `maxPrice`, `search`, `sort` query params) |
-| `GET /api/bikes/:id` | — | Bike detail |
-| `POST /api/bikes` | admin | Add a bike |
-| `PUT /api/bikes/:id` | admin | Edit a bike |
-| `DELETE /api/bikes/:id` | admin | Remove a bike |
-| `GET /api/bikes/:id/reviews` | — | Reviews for a bike |
+| `GET /api/bikes` | — | List motorcycles (supports `type`, `location`, `maxPrice`, `search`, `sort` query params) |
+| `GET /api/bikes/:id` | — | Motorcycle detail |
+| `POST /api/bikes` | admin | Add a motorcycle |
+| `PUT /api/bikes/:id` | admin | Edit a motorcycle |
+| `DELETE /api/bikes/:id` | admin | Remove a motorcycle |
+| `GET /api/bikes/:id/reviews` | — | Reviews for a motorcycle |
 | `POST /api/bikes/:id/reviews` | required | Leave a review |
-| `POST /api/bookings` | required | Book a bike |
+| `POST /api/bookings` | required | Book a motorcycle |
 | `GET /api/bookings/me` | required | Your bookings |
 | `GET /api/bookings` | admin | All bookings + fleet-wide stats |
 | `DELETE /api/bookings/:id` | required | Cancel your own booking |

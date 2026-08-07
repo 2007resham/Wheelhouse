@@ -1,7 +1,7 @@
 {
   "name": "wheelhouse",
   "version": "1.0.0",
-  "description": "WheelHouse - urban bike rental platform (university group project)",
+  "description": "WheelHouse - motorcycle rental platform (university group project)",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",

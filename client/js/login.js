@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const submitBtn = document.getElementById('submit-btn');
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Logging in...';
+    submitBtn.innerHTML = `${window.WheelHouseLoader.inlineHTML('sm')}Logging in...`;
 
     try {
       const { api, saveSession } = window.WheelHouseAPI;

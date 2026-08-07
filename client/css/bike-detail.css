@@ -25,6 +25,20 @@
 .detail-price-block .value { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: var(--color-primary); }
 .detail-price-block .label { font-size: 0.8rem; color: var(--color-text-muted); }
 
+.detail-specs {
+  display: flex;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.detail-spec-block .value { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--color-primary); }
+.detail-spec-block .label { font-size: 0.75rem; color: var(--color-text-muted); }
+
+.booking-widget .checkbox-label { display: flex; align-items: flex-start; gap: var(--space-sm); font-size: 0.85rem; margin-bottom: var(--space-md); line-height: 1.4; }
+.booking-widget .checkbox-label input { margin-top: 0.2rem; }
+
 .unavailable-notice {
   background: #FBEAE8;
   color: var(--color-danger);

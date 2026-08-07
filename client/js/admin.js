@@ -18,9 +18,11 @@ function renderBikeForm(bike = null) {
             <div class="field">
               <label for="bike-type">Type</label>
               <select id="bike-type">
-                <option value="city" ${bike?.type === 'city' ? 'selected' : ''}>City</option>
-                <option value="mountain" ${bike?.type === 'mountain' ? 'selected' : ''}>Mountain</option>
-                <option value="electric" ${bike?.type === 'electric' ? 'selected' : ''}>Electric</option>
+                <option value="commuter" ${bike?.type === 'commuter' ? 'selected' : ''}>Commuter</option>
+                <option value="cruiser" ${bike?.type === 'cruiser' ? 'selected' : ''}>Cruiser</option>
+                <option value="sports" ${bike?.type === 'sports' ? 'selected' : ''}>Sports</option>
+                <option value="adventure" ${bike?.type === 'adventure' ? 'selected' : ''}>Adventure</option>
+                <option value="scooter" ${bike?.type === 'scooter' ? 'selected' : ''}>Scooter</option>
               </select>
             </div>
             <div class="field field-full">
@@ -34,6 +36,21 @@ function renderBikeForm(bike = null) {
             <div class="field">
               <label for="bike-price-day">Price / day</label>
               <input type="number" id="bike-price-day" min="0.01" step="0.01" value="${bike ? bike.price_per_day : ''}" required />
+            </div>
+            <div class="field">
+              <label for="bike-engine-cc">Engine (cc)</label>
+              <input type="number" id="bike-engine-cc" min="1" step="1" value="${bike ? bike.engine_cc : ''}" required />
+            </div>
+            <div class="field">
+              <label for="bike-mileage">Mileage (kmpl)</label>
+              <input type="number" id="bike-mileage" min="0.1" step="0.1" value="${bike ? bike.mileage_kmpl : ''}" required />
+            </div>
+            <div class="field">
+              <label for="bike-fuel-type">Fuel type</label>
+              <select id="bike-fuel-type">
+                <option value="Petrol" ${bike?.fuel_type === 'Petrol' ? 'selected' : ''}>Petrol</option>
+                <option value="Electric" ${bike?.fuel_type === 'Electric' ? 'selected' : ''}>Electric</option>
+              </select>
             </div>
             <div class="field field-full">
               <label for="bike-image">Image URL</label>
@@ -72,6 +89,9 @@ function renderBikeForm(bike = null) {
       description: document.getElementById('bike-description').value.trim(),
       price_per_hour: Number(document.getElementById('bike-price-hour').value),
       price_per_day: Number(document.getElementById('bike-price-day').value),
+      engine_cc: Number(document.getElementById('bike-engine-cc').value),
+      mileage_kmpl: Number(document.getElementById('bike-mileage').value),
+      fuel_type: document.getElementById('bike-fuel-type').value,
       image_url: document.getElementById('bike-image').value.trim(),
       location: document.getElementById('bike-location').value.trim(),
       is_available: document.getElementById('bike-available').checked,
@@ -140,6 +160,7 @@ function renderBikesTable() {
 }
 
 async function loadBikes() {
+  document.getElementById('bikes-tbody').innerHTML = window.WheelHouseLoader.rowLoaderHTML(7, 'Loading bikes...');
   try {
     const { api } = window.WheelHouseAPI;
     const { bikes } = await api.get('/bikes');
@@ -153,6 +174,7 @@ async function loadBikes() {
 
 async function loadBookingsAndStats() {
   const tbody = document.getElementById('bookings-tbody');
+  tbody.innerHTML = window.WheelHouseLoader.rowLoaderHTML(5, 'Loading bookings...');
   try {
     const { api } = window.WheelHouseAPI;
     const { bookings, stats } = await api.get('/bookings', { auth: true });

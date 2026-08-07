@@ -27,19 +27,4 @@ function renderBikeCard(bike, linkPrefix = '') {
   `;
 }
 
-function renderBikeCardSkeleton() {
-  return `
-    <div class="card bike-card">
-      <div class="skeleton bike-card-image"></div>
-      <div class="card-body">
-        <div class="skeleton" style="height: 1rem; width: 40%; border-radius: 999px;"></div>
-        <div class="skeleton" style="height: 1.2rem; width: 70%;"></div>
-        <div class="skeleton" style="height: 0.9rem; width: 50%;"></div>
-        <div class="skeleton" style="height: 1.4rem; width: 100%; margin-top: 0.5rem;"></div>
-      </div>
-    </div>
-  `;
-}
-
 window.renderBikeCard = renderBikeCard;
-window.renderBikeCardSkeleton = renderBikeCardSkeleton;

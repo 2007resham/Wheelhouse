@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const submitBtn = document.getElementById('submit-btn');
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Creating account...';
+    submitBtn.innerHTML = `${window.WheelHouseLoader.inlineHTML('sm')}Creating account...`;
 
     try {
       const { api, saveSession } = window.WheelHouseAPI;

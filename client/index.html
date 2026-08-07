@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WheelHouse — Ride the City, Your Way</title>
+  <title>WheelHouse — Motorcycle Rentals for the Open Road</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/design-system.css" />
+  <link rel="stylesheet" href="css/loader.css" />
   <link rel="stylesheet" href="css/landing.css" />
 </head>
 <body>
@@ -31,57 +32,73 @@
 
   <main>
     <section class="hero">
+      <div class="hero-bg" style="background-image: url('assets/hero/hero-road.jpg');"></div>
+      <div class="hero-overlay"></div>
       <div class="container hero-inner">
-        <div class="hero-copy">
-          <span class="badge badge-accent">Now live in your city</span>
-          <h1>Find your wheelhouse. <br />Ride wherever it takes you.</h1>
-          <p>WheelHouse puts city bikes, mountain bikes, and e-bikes on every corner &mdash; book by the hour or the day, pick up at a station near you, and go.</p>
-          <div class="flex-gap">
-            <a href="pages/browse.html" class="btn btn-primary">Browse bikes</a>
-            <a href="#how-it-works" class="btn btn-outline">How it works</a>
-          </div>
+        <span class="badge badge-accent">Now live in your city</span>
+        <h1>Hit the road on<br />your terms.</h1>
+        <p>From city commuters to highway cruisers, WheelHouse puts real motorcycles on every corner &mdash; book by the hour or the day, pick up at a station near you, and ride.</p>
+        <div class="flex-gap">
+          <a href="pages/browse.html" class="btn btn-primary">Find your ride</a>
+          <a href="#how-it-works" class="btn btn-outline btn-outline-light">How it works</a>
         </div>
-        <div class="hero-art" aria-hidden="true">
-          <svg viewBox="0 0 400 300" width="100%" height="100%">
-            <circle cx="120" cy="220" r="55" fill="none" stroke="#1B4332" stroke-width="8"/>
-            <circle cx="280" cy="220" r="55" fill="none" stroke="#1B4332" stroke-width="8"/>
-            <path d="M120 220 L190 120 L280 220 M190 120 L160 220 M190 120 L230 120" fill="none" stroke="#1B4332" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="230" cy="120" r="10" fill="#B4E600"/>
-          </svg>
+
+        <div class="stats-row">
+          <div class="stat-item">
+            <span class="stat-value">15+</span>
+            <span class="stat-label">Bikes available</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">4</span>
+            <span class="stat-label">Cities</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">2,400+</span>
+            <span class="stat-label">Happy riders</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="how-it-works" class="how-it-works">
+    <section id="how-it-works" class="how-it-works reveal">
       <div class="container">
         <h2 class="text-center">How WheelHouse works</h2>
         <div class="steps-grid">
           <div class="card step-card">
             <div class="card-body">
+              <span class="step-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21" stroke-linecap="round"/></svg>
+              </span>
               <span class="step-number">1</span>
               <h3>Browse &amp; pick</h3>
-              <p>Filter by bike type, price, or station and find the ride that fits your trip.</p>
+              <p>Filter by bike type, engine size, price, or station and find the ride that fits your trip.</p>
             </div>
           </div>
           <div class="card step-card">
             <div class="card-body">
+              <span class="step-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2"/><line x1="3" y1="9.5" x2="21" y2="9.5"/><path d="M8 14.5l2.5 2.5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
               <span class="step-number">2</span>
               <h3>Book instantly</h3>
-              <p>Choose your dates and times, review the price, and confirm &mdash; no paperwork.</p>
+              <p>Choose your dates and times, confirm your license, and pay &mdash; no paperwork, no waiting around.</p>
             </div>
           </div>
           <div class="card step-card">
             <div class="card-body">
+              <span class="step-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><path d="M6 18l4-9h4l3 5h3" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 9l2-3" stroke-linecap="round"/></svg>
+              </span>
               <span class="step-number">3</span>
               <h3>Ride &amp; return</h3>
-              <p>Pick up at your chosen station, ride the city, and drop off when you're done.</p>
+              <p>Pick up your bike, helmet on, and hit the city or the highway. Drop off when you're done.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="featured">
+    <section class="featured reveal">
       <div class="container">
         <div class="flex-between">
           <h2>Featured bikes</h2>
@@ -91,26 +108,38 @@
       </div>
     </section>
 
-    <section class="testimonials">
+    <section class="testimonials reveal">
       <div class="container">
         <h2 class="text-center">Riders love WheelHouse</h2>
         <div class="testimonial-grid">
           <div class="card testimonial-card">
             <div class="card-body">
-              <p>&ldquo;Booked an e-bike for a weekend trip along the river &mdash; smoothest rental experience I've had.&rdquo;</p>
-              <strong>— Priya M.</strong>
+              <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+              <p>Booked a Classic 350 for a weekend highway run &mdash; smoothest rental experience I've had, and the bike was spotless.</p>
+              <div class="testimonial-footer">
+                <strong>Priya M.</strong>
+                <span class="stars">★★★★★</span>
+              </div>
             </div>
           </div>
           <div class="card testimonial-card">
             <div class="card-body">
-              <p>&ldquo;The mountain bikes are actually trail-ready. Great for a spontaneous Saturday ride.&rdquo;</p>
-              <strong>— Daniel K.</strong>
+              <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+              <p>The Himalayan was genuinely trail-ready. Great for a spontaneous Saturday ride out of the city.</p>
+              <div class="testimonial-footer">
+                <strong>Daniel K.</strong>
+                <span class="stars">★★★★★</span>
+              </div>
             </div>
           </div>
           <div class="card testimonial-card">
             <div class="card-body">
-              <p>&ldquo;Cheaper than I expected and the station near my office made commuting so much easier.&rdquo;</p>
-              <strong>— Sofia R.</strong>
+              <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+              <p>Cheaper than I expected and the station near my office made my daily commute so much easier.</p>
+              <div class="testimonial-footer">
+                <strong>Sofia R.</strong>
+                <span class="stars">★★★★☆</span>
+              </div>
             </div>
           </div>
         </div>
@@ -126,7 +155,7 @@
             <span class="wheel-icon" style="border-color:#fff;"></span>
             WheelHouse
           </a>
-          <p style="margin-top: 1rem; max-width: 320px;">Urban bike rentals for every kind of ride &mdash; by the hour, by the day, by the city.</p>
+          <p style="margin-top: 1rem; max-width: 320px;">Motorcycle rentals for every kind of ride &mdash; by the hour, by the day, by the city.</p>
         </div>
         <div>
           <h4>Explore</h4>
@@ -157,6 +186,7 @@
   </footer>
 
   <script src="js/api.js"></script>
+  <script src="js/loader.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/bikeCard.js"></script>
   <script src="js/landing.js"></script>
