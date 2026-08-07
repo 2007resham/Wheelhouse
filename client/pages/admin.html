@@ -8,9 +8,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/design-system.css" />
   <link rel="stylesheet" href="../css/loader.css" />
+  <link rel="stylesheet" href="../css/splash.css" />
   <link rel="stylesheet" href="../css/admin.css" />
 </head>
 <body>
+
+  <div id="wh-splash" class="wh-splash">
+    <div class="wh-splash-inner">
+      <div class="wh-splash-wordmark"><span class="wheel-icon"></span>WheelHouse</div>
+      <span class="wh-loader wh-loader-xl">
+        <svg viewBox="0 0 64 64" class="wh-loader-svg" role="img" aria-label="Loading">
+          <circle cx="32" cy="32" r="26" class="wh-loader-rim" />
+          <g class="wh-loader-spokes">
+            <line x1="32" y1="8" x2="32" y2="56" />
+            <line x1="8" y1="32" x2="56" y2="32" />
+            <line x1="14" y1="14" x2="50" y2="50" />
+            <line x1="50" y1="14" x2="14" y2="50" />
+          </g>
+          <circle cx="32" cy="32" r="5" class="wh-loader-hub" />
+        </svg>
+      </span>
+      <p class="wh-splash-tagline">Gearing up your ride&hellip;</p>
+      <div class="wh-splash-dots"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+  <script>
+    if (sessionStorage.getItem('wh_splash_shown')) {
+      document.getElementById('wh-splash').style.display = 'none';
+    }
+  </script>
 
   <header class="navbar">
     <div class="container">
@@ -85,6 +111,7 @@
 
   <script src="../js/api.js"></script>
   <script src="../js/loader.js"></script>
+  <script src="../js/splash.js"></script>
   <script src="../js/auth.js"></script>
   <script src="../js/admin.js"></script>
 </body>

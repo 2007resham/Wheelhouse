@@ -1,0 +1,92 @@
+/* =========================================================
+   WheelHouse Pre-Load Splash Screen
+   Full-screen brand overlay shown once per browser session
+   on a fresh site load. Pairs with js/splash.js and reuses
+   the wh-loader wheel component from loader.css.
+   ========================================================= */
+
+.wh-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  opacity: 1;
+  transition: opacity 450ms ease;
+}
+.wh-splash-hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.wh-splash-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.wh-splash-wordmark {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2rem;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+.wh-splash-wordmark .wheel-icon {
+  width: 34px;
+  height: 34px;
+  border: 3px solid var(--color-accent);
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+.wh-splash-wordmark .wheel-icon::before,
+.wh-splash-wordmark .wheel-icon::after {
+  content: '';
+  position: absolute;
+  background: var(--color-accent);
+}
+.wh-splash-wordmark .wheel-icon::before { top: 50%; left: 2px; right: 2px; height: 2px; transform: translateY(-50%); }
+.wh-splash-wordmark .wheel-icon::after { left: 50%; top: 2px; bottom: 2px; width: 2px; transform: translateX(-50%); }
+
+.wh-splash-tagline {
+  font-family: var(--font-body);
+  color: var(--color-accent);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.wh-splash .wh-loader-rim { stroke: var(--color-accent); }
+.wh-splash .wh-loader-spokes line { stroke: #fff; }
+.wh-splash .wh-loader-hub { fill: var(--color-accent); }
+
+.wh-splash-dots {
+  display: flex;
+  gap: 8px;
+}
+.wh-splash-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: wh-splash-pulse 1.2s ease-in-out infinite;
+}
+.wh-splash-dots span:nth-child(2) { animation-delay: 0.2s; }
+.wh-splash-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes wh-splash-pulse {
+  0%, 80%, 100% { opacity: 0.25; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1.15); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wh-splash-dots span { animation-duration: 2.4s; }
+}
