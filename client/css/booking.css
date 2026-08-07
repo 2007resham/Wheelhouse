@@ -1,0 +1,42 @@
+.booking-page { padding: var(--space-xl) 0 var(--space-2xl); }
+.booking-container { max-width: 640px; }
+
+.booking-summary-card { display: flex; gap: var(--space-md); margin-bottom: var(--space-lg); }
+.booking-summary-image { width: 120px; height: 90px; object-fit: cover; border-radius: var(--radius-sm); flex-shrink: 0; }
+.booking-summary-info h3 { margin-bottom: var(--space-xs); }
+.booking-summary-info p { margin: 0; font-size: 0.9rem; }
+
+.order-line {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.95rem;
+}
+.order-line:last-of-type { border-bottom: none; }
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--space-md);
+  margin-top: var(--space-sm);
+  border-top: 2px solid var(--color-text);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.payment-section { margin-top: var(--space-xl); padding-top: var(--space-xl); border-top: 1px solid var(--color-border); }
+.payment-note { font-size: 0.8rem; color: var(--color-text-muted); margin-top: -0.5rem; margin-bottom: var(--space-lg); }
+.payment-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+
+.confirmation-card { text-align: center; padding: var(--space-2xl) var(--space-lg); }
+.confirmation-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(45, 106, 79, 0.12); color: var(--color-success);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; margin: 0 auto var(--space-lg);
+}
+
+@media (max-width: 560px) {
+  .payment-row { grid-template-columns: 1fr; }
+}

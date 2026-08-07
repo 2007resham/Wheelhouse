@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bike Details — WheelHouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/design-system.css" />
+  <link rel="stylesheet" href="../css/bike-detail.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">
+        <span class="wheel-icon"></span>
+        WheelHouse
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="browse.html">Browse Bikes</a>
+      </nav>
+      <div class="nav-actions" id="nav-auth-slot"></div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="detail-page">
+    <div class="container">
+      <div id="detail-content">
+        <div class="detail-grid">
+          <div class="skeleton detail-image"></div>
+          <div class="detail-info">
+            <div class="skeleton" style="height: 1rem; width: 30%; border-radius: 999px;"></div>
+            <div class="skeleton" style="height: 2rem; width: 70%; margin-top: 0.75rem;"></div>
+            <div class="skeleton" style="height: 1rem; width: 50%; margin-top: 0.75rem;"></div>
+            <div class="skeleton" style="height: 6rem; width: 100%; margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <section class="reviews-section">
+        <h2>Reviews</h2>
+        <div id="review-form-slot"></div>
+        <div id="reviews-list">
+          <p class="text-center">Loading reviews...</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 WheelHouse. A university front-end engineering group project.
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/bikeCard.js"></script>
+  <script src="../js/bike-detail.js"></script>
+</body>
+</html>

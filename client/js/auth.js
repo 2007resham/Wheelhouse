@@ -10,22 +10,30 @@ function initialsFor(name) {
     .toUpperCase();
 }
 
+// Pages live either at /client/index.html or one level down in /client/pages/,
+// so nav links need a prefix that resolves correctly from either location.
+function siteRootPrefix() {
+  return window.location.pathname.includes('/pages/') ? '../' : '';
+}
+
 function renderNavAuthState() {
   const slot = document.getElementById('nav-auth-slot');
   if (!slot) return;
 
   const user = window.WheelHouseAPI.getStoredUser();
+  const root = siteRootPrefix();
 
   if (!user) {
     slot.innerHTML = `
-      <a href="login.html" class="btn btn-outline">Log in</a>
-      <a href="signup.html" class="btn btn-primary">Sign up</a>
+      <a href="${root}pages/login.html" class="btn btn-outline">Log in</a>
+      <a href="${root}pages/signup.html" class="btn btn-primary">Sign up</a>
     `;
     return;
   }
 
   slot.innerHTML = `
-    <a href="dashboard.html" class="nav-user-chip">
+    ${user.role === 'admin' ? `<a href="${root}pages/admin.html" class="btn btn-outline">Admin</a>` : ''}
+    <a href="${root}pages/dashboard.html" class="nav-user-chip">
       <span class="nav-avatar">${initialsFor(user.name)}</span>
       <span>${user.name.split(' ')[0]}</span>
     </a>
@@ -34,7 +42,7 @@ function renderNavAuthState() {
 
   document.getElementById('logout-btn').addEventListener('click', () => {
     window.WheelHouseAPI.clearSession();
-    window.location.href = 'index.html';
+    window.location.href = `${root}index.html`;
   });
 }
 

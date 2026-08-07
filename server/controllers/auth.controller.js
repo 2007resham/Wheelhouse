@@ -50,4 +50,16 @@ const me = asyncHandler(async (req, res) => {
   res.json({ user });
 });
 
-module.exports = { signup, login, me };
+const updateMe = asyncHandler(async (req, res) => {
+  const { name, email } = req.body;
+  if (!name || !name.trim()) throw new ApiError(400, 'Name is required');
+  if (!email || !EMAIL_RE.test(email)) throw new ApiError(400, 'A valid email is required');
+
+  const existing = userModel.findByEmail(email.toLowerCase());
+  if (existing && existing.id !== req.user.id) throw new ApiError(409, 'An account with that email already exists');
+
+  const user = userModel.updateProfile(req.user.id, { name: name.trim(), email: email.toLowerCase() });
+  res.json({ user });
+});
+
+module.exports = { signup, login, me, updateMe };

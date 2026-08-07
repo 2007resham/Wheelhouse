@@ -6,9 +6,12 @@ const BASE_SELECT = `
     bi.name AS bike_name,
     bi.image_url AS bike_image_url,
     bi.type AS bike_type,
-    bi.location AS bike_location
+    bi.location AS bike_location,
+    u.name AS user_name,
+    u.email AS user_email
   FROM bookings bo
   JOIN bikes bi ON bi.id = bo.bike_id
+  JOIN users u ON u.id = bo.user_id
 `;
 
 function create({ userId, bikeId, startTime, endTime, status = 'confirmed', totalPrice }) {

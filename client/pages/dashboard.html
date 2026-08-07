@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard — WheelHouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/design-system.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">
+        <span class="wheel-icon"></span>
+        WheelHouse
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="browse.html">Browse Bikes</a>
+      </nav>
+      <div class="nav-actions" id="nav-auth-slot"></div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="dashboard-page">
+    <div class="container">
+      <h1>My dashboard</h1>
+
+      <div class="dashboard-tabs">
+        <button class="tab-btn active" data-tab="rentals">My Rentals</button>
+        <button class="tab-btn" data-tab="profile">Profile</button>
+      </div>
+
+      <section id="tab-rentals" class="tab-panel">
+        <h2>Active rentals</h2>
+        <div id="active-rentals" class="rentals-list">
+          <p>Loading...</p>
+        </div>
+
+        <h2 style="margin-top: var(--space-xl);">Past rentals</h2>
+        <div id="past-rentals" class="rentals-list"></div>
+      </section>
+
+      <section id="tab-profile" class="tab-panel" hidden>
+        <div class="card" style="max-width: 480px;">
+          <div class="card-body">
+            <div class="form-error-banner" id="profile-error"></div>
+            <div class="form-success-banner" id="profile-success"></div>
+            <form id="profile-form">
+              <div class="field">
+                <label for="profile-name">Full name</label>
+                <input type="text" id="profile-name" required />
+              </div>
+              <div class="field">
+                <label for="profile-email">Email</label>
+                <input type="email" id="profile-email" required />
+              </div>
+              <button type="submit" class="btn btn-primary" id="profile-submit-btn">Save changes</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

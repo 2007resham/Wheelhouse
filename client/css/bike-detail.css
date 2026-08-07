@@ -1,0 +1,73 @@
+.detail-page { padding: var(--space-xl) 0 var(--space-2xl); }
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+.detail-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  background: var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.detail-info .badge { margin-bottom: var(--space-sm); }
+.detail-info h1 { margin-bottom: var(--space-xs); }
+.detail-location { color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: var(--space-md); }
+.detail-rating { font-weight: 600; margin-bottom: var(--space-md); }
+.detail-description { margin-bottom: var(--space-lg); }
+
+.detail-prices { display: flex; gap: var(--space-xl); margin-bottom: var(--space-lg); }
+.detail-price-block .value { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: var(--color-primary); }
+.detail-price-block .label { font-size: 0.8rem; color: var(--color-text-muted); }
+
+.unavailable-notice {
+  background: #FBEAE8;
+  color: var(--color-danger);
+  border: 1px solid #E9B8B1;
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+  font-size: 0.9rem;
+}
+
+.booking-widget {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-lg);
+}
+.booking-widget h3 { margin-bottom: var(--space-md); }
+.booking-widget .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+
+.booking-estimate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+.booking-estimate .amount { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--color-primary); }
+.booking-error { color: var(--color-danger); font-size: 0.85rem; margin: -0.5rem 0 var(--space-md); min-height: 1.2em; }
+
+.reviews-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--color-border); }
+.review-card { padding: var(--space-lg) 0; border-bottom: 1px solid var(--color-border); }
+.review-card:last-child { border-bottom: none; }
+.review-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xs); }
+.review-stars { color: var(--color-accent-dark); font-weight: 700; }
+.review-meta { font-size: 0.8rem; color: var(--color-text-muted); }
+
+.review-form-card { background: var(--color-surface); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); padding: var(--space-lg); margin-bottom: var(--space-lg); }
+.review-form-card .field-row { display: grid; grid-template-columns: 140px 1fr; gap: var(--space-md); align-items: start; }
+
+@media (max-width: 860px) {
+  .detail-grid { grid-template-columns: 1fr; }
+  .booking-widget .field-row { grid-template-columns: 1fr; }
+  .review-form-card .field-row { grid-template-columns: 1fr; }
+}

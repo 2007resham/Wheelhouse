@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — WheelHouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/design-system.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">
+        <span class="wheel-icon"></span>
+        WheelHouse
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="browse.html">Browse Bikes</a>
+      </nav>
+      <div class="nav-actions" id="nav-auth-slot"></div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="admin-page">
+    <div class="container">
+      <h1>Admin dashboard</h1>
+
+      <div class="stats-row" id="stats-row">
+        <div class="card stat-card"><div class="stat-value">—</div><div class="stat-label">Total bikes</div></div>
+        <div class="card stat-card"><div class="stat-value">—</div><div class="stat-label">Total rentals</div></div>
+        <div class="card stat-card"><div class="stat-value">—</div><div class="stat-label">Est. revenue</div></div>
+      </div>
+
+      <div class="dashboard-tabs">
+        <button class="tab-btn active" data-tab="bikes">Manage Bikes</button>
+        <button class="tab-btn" data-tab="bookings">All Bookings</button>
+      </div>
+
+      <section id="tab-bikes" class="tab-panel">
+        <div class="flex-between mb-lg">
+          <p style="margin: 0;">Add, edit, or remove bikes from the fleet.</p>
+          <button class="btn btn-primary" id="add-bike-btn">+ Add bike</button>
+        </div>
+
+        <div id="bike-form-slot"></div>
+
+        <div class="table-wrap">
+          <table class="admin-table" id="bikes-table">
+            <thead>
+              <tr>
+                <th>Bike</th><th>Type</th><th>Location</th><th>Price/hr</th><th>Price/day</th><th>Status</th><th></th>
+              </tr>
+            </thead>
+            <tbody id="bikes-tbody">
+              <tr><td colspan="7">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="tab-bookings" class="tab-panel" hidden>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Bike</th><th>Rider</th><th>Dates</th><th>Status</th><th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="bookings-tbody">
+              <tr><td colspan="5">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

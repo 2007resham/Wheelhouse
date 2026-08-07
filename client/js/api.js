@@ -27,6 +27,13 @@ function clearSession() {
   sessionStorage.removeItem(USER_KEY);
 }
 
+// Updates the cached user profile in whichever store currently holds the session,
+// without touching the token (used after a profile edit, not a fresh login).
+function updateStoredUser(user) {
+  const store = localStorage.getItem(TOKEN_KEY) ? localStorage : sessionStorage;
+  store.setItem(USER_KEY, JSON.stringify(user));
+}
+
 async function apiRequest(path, { method = 'GET', body, auth = false } = {}) {
   const headers = { 'Content-Type': 'application/json' };
   if (auth) {
@@ -56,4 +63,4 @@ const api = {
   delete: (path, opts) => apiRequest(path, { ...opts, method: 'DELETE' }),
 };
 
-window.WheelHouseAPI = { api, getToken, getStoredUser, saveSession, clearSession };
+window.WheelHouseAPI = { api, getToken, getStoredUser, saveSession, clearSession, updateStoredUser };

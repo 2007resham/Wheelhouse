@@ -1,0 +1,31 @@
+.admin-page { padding: var(--space-xl) 0 var(--space-2xl); }
+
+.stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); margin-bottom: var(--space-xl); }
+.stat-card .card-body, .stat-card { padding: var(--space-lg); text-align: center; }
+.stat-value { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--color-primary); }
+.stat-label { font-size: 0.85rem; color: var(--color-text-muted); }
+
+.dashboard-tabs { display: flex; gap: var(--space-md); margin-bottom: var(--space-xl); border-bottom: 1px solid var(--color-border); }
+.tab-btn {
+  background: none; border: none; padding: var(--space-md) var(--space-xs);
+  font-family: var(--font-heading); font-weight: 600; color: var(--color-text-muted);
+  border-bottom: 3px solid transparent; margin-bottom: -1px;
+}
+.tab-btn.active { color: var(--color-primary); border-bottom-color: var(--color-primary); }
+
+.table-wrap { background: var(--color-surface); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); overflow-x: auto; }
+.admin-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.admin-table th, .admin-table td { text-align: left; padding: var(--space-md); border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+.admin-table tr:last-child td { border-bottom: none; }
+.admin-table th { color: var(--color-text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.admin-table .row-actions { display: flex; gap: var(--space-sm); }
+.admin-table .row-actions button { padding: 0.35rem 0.8rem; font-size: 0.8rem; }
+
+.bike-form-card { margin-bottom: var(--space-lg); }
+.bike-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+.bike-form-grid .field-full { grid-column: 1 / -1; }
+
+@media (max-width: 720px) {
+  .stats-row { grid-template-columns: 1fr; }
+  .bike-form-grid { grid-template-columns: 1fr; }
+}
